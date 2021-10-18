@@ -1,0 +1,17 @@
+Collecting twilio
+  Downloading https://files.pythonhosted.org/packages/5a/ee/65693a0094667b21a21ed2732c5e4585c6365a305e34832e269ed40683bf/twilio-6.58.0.tar.gz (480kB)
+Collecting six (from twilio)
+  Downloading https://files.pythonhosted.org/packages/d9/5a/e7c31adbe875f2abbb91bd84cf2dc52d792b5a01506781dbcf25c91daf11/six-1.16.0-py2.py3-none-any.whl
+Collecting pytz (from twilio)
+  Downloading https://files.pythonhosted.org/packages/70/94/784178ca5dd892a98f113cdd923372024dc04b8d40abe77ca76b5fb90ca6/pytz-2021.1-py2.py3-none-any.whl (510kB)
+Collecting PyJWT==1.7.1 (from twilio)
+  Downloading https://files.pythonhosted.org/packages/87/8b/6a9f14b5f781697e51259d81657e6048fd31a113229cf346880bb7545565/PyJWT-1.7.1-py2.py3-none-any.whl
+Requirement already satisfied: requests>=2.0.0 in c:\cowin\vaccinealert\vaccineenv\lib\site-packages (from twilio) (2.25.1)
+Requirement already satisfied: chardet<5,>=3.0.2 in c:\cowin\vaccinealert\vaccineenv\lib\site-packages (from requests>=2.0.0->twilio) (4.0.0)
+Requirement already satisfied: urllib3<1.27,>=1.21.1 in c:\cowin\vaccinealert\vaccineenv\lib\site-packages (from requests>=2.0.0->twilio) (1.26.4)
+Requirement already satisfied: idna<3,>=2.5 in c:\cowin\vaccinealert\vaccineenv\lib\site-packages (from requests>=2.0.0->twilio) (2.10)
+Requirement already satisfied: certifi>=2017.4.17 in c:\cowin\vaccinealert\vaccineenv\lib\site-packages (from requests>=2.0.0->twilio) (2020.12.5)
+Installing collected packages: six, pytz, PyJWT, twilio
+  Running setup.py install for twilio: started
+    Running setup.py install for twilio: finished with status 'done'
+Successfully installed PyJWT-1.7.1 pytz-2021.1 six-1.16.0 twilio-6.58.0

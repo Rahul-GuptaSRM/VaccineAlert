@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  .bg-1 {
+    background-color: #1abc9c;
+    color: #ffffff;
+  }
+  .bg-2 {
+    background-color: #474e5d;
+    color: #ffffff;
+  }
+  .bg-3 {
+    background-color: #ffffff;
+    color: #555555;
+  }
+  .container-fluid {
+    padding-top:70px;
+    padding-bottom: 70px;
+  }
+  .col-xs-2
+  {
+    width : 20% !important;
+  }
+  input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+</style>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2021.2.511/styles/kendo.default-v2.min.css"/>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2021.2.511/js/kendo.all.min.js"></script>
+</head>
+<body>
+
+<div class="container-fluid bg-2 text-center">
+  <h3 class="margin">Vaccination Drive</h3>
+  <pre>Get instant message about slot opening in you area on mobile phone And then quickly book slot</pre>
+  <pre>Please provide below details</pre>
+
+</div>
+<span id="job_msg" style="color:green;font-size: 13px; margin-top:1%; margin-left:36%; font-weight: 900"></span>
+
+<div class="container">
+<form style="padding-left:22%;padding-top:8%;">
+    <div class="form-group row">
+      <div class="col-xs-2">
+        <label for="ex1">Contact Number:</label>
+        <input class="form-control" id="contact" type="number" name="telphone" placeholder="888 888 8888" maxlength="10"  title="Ten digits code" required/>
+      </div>
+      <div class="col-xs-2">
+        <label for="ex2">PinCode :</label>
+        <input class="form-control" id="pincode" type="number" placeholder="333 333" maxlength="6">
+      </div>
+      <div class="col-xs-2">
+      <label for="ex2">Age Group :</label>
+<input id="dropdownlist" />
+
+    </div>
+
+    </div>
+    <button type="button" class="btn" onclick="Save()" style="margin-top:5%;margin-left:25%">Save</button>
+    <!--<img src="../static/images/abc1.gif" height="20" width="20" id="waiting_after" style="display: none">-->
+  </form>
+
+</div>
+
+<script>
+var userContact = []
+var userPincode = []
+var age = "18+";
+
+$(document).ready(function () {
+
+$.get("/get_user_data", function (data, status) {
+userContact = data["contact"]
+userPincode = data["pincode"]
+
+});
+})
+
+$("#dropdownlist").kendoDropDownList({
+  dataSource: ["18", "45", "60" ],
+  change: function(e) {
+     age = this.value();
+  }
+});
+
+
+function Save()
+{
+
+var phoneNumber = $("#contact").val();
+ var pincode = $("#pincode").val();
+console.log("age ", age)
+ var isUserExists = userContact.includes(phoneNumber);
+ if(isUserExists)
+ {
+	 $("#job_msg").html("Contact number already exists");
+   document.getElementById("job_msg").style.color = "red";
+ }
+ else if ((phoneNumber.length != 10 || pincode.length != 6)) {
+   $("#job_msg").html("Enter Correct contact number or pincode");
+   document.getElementById("job_msg").style.color = "red";
+ }
+ else{
+   //document.getElementById("waiting_after").style.display = "block";
+  // $('#waiting_after').css('display', 'inline');
+   var userData = {
+                'PhoneNumber': phoneNumber,
+                'Pincode': pincode,
+                'age' : age
+				}
+
+$.ajax({
+	  url: '/userData',
+			data: userData,
+			contentType: 'application/x-www-form-urlencoded',
+			type: 'POST',
+			success: function (data) {
+				document.getElementById('contact').value = ''
+				document.getElementById('pincode').value = ''
+				$("#job_msg").html("Data Saved. You will get message once slot will be available.")
+				//document.getElementById("waiting_after").style.display = "none"
+        document.getElementById("job_msg").style.color = "green";
+			},
+			error : function (data){
+			}
+			})
+ }
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+</body>
+
+</html>

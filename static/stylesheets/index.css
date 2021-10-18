@@ -1,0 +1,97 @@
+.data_file_drag_area {
+
+            height: 150px;
+            border: 2px dashed #ccc;
+            border-radius: 25px;
+            line-height: 100px;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        .file_drag_over {
+            color: #000;
+            border-color: #000;
+            background: #5bc0de;
+            height: 200px;
+        }
+
+        .mapFile_drag_area {
+            height: 150px;
+            border: 2px dashed #ccc;
+            border-radius: 25px;
+            line-height: 100px;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        .mapping_file_drag_over {
+            color: #000;
+            border-color: #000;
+            background: #5bc0de;
+            height: 200px;
+        }
+
+        .popover.bottom .arrow {
+            visibility: hidden;
+        }
+
+        .modal.modal-wide .modal-dialog {
+            width: 90%;
+        }
+
+        .modal-wide .modal-body {
+            overflow-y: auto;
+        }
+
+        body p {
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+        #tallModal .modal-body p {
+            margin-bottom: 900px
+        }
+
+        #overlay {
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 999;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+
+        .modal-body {
+            max-height: calc(100vh - 210px);
+            overflow-y: auto;
+        }
+
+        .circleBase {
+            border-radius: 100%;
+        }
+
+        .type3 {
+            width: 90px;
+            height: 90px;
+            background: #0096d6;;
+            border: 3px solid #ffd777;
+            margin-left: 29%;
+        }
+
+        .col_lg_1_btn {
+            height: 25px;
+            width: 75px;
+            text-align: center;
+        }
+		
+		btn-info {
+            background-color: #0096d6;
+            border-color: #0096d6;
+        }
+
+        .btn-info:hover, .btn-info:focus, .btn-info:active, .btn-info.active, .open > .dropdown-toggle.btn-info {
+            background-color: #0096d6;
+            border-color: #0096d6;
+        }
